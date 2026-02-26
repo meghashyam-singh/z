@@ -5,7 +5,7 @@ RUN apk add --no-cache python3-dev
 WORKDIR /app
 COPY requirements.txt ./
 COPY . .
-RUN pip3 install -r --prefix=/install requirements.txt
+RUN pip3 install --prefix=/install -r requirements.txt
 
 FROM python:3.11-alpine3.22
 WORKDIR /app
