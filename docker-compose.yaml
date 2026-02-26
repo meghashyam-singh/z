@@ -1,0 +1,86 @@
+services:
+  mongodb:
+    build: /mongodb
+    image: mongodb-image:v1
+    container_name: mongodb-cont
+    networks:
+     - roboshop
+
+  catalogue:
+    build: /catalogue
+    image: catalogue-image:v1
+    container_name: catalogue-cont
+    ports:
+     - "1111:8080"
+    networks:
+      - roboshop
+
+  redis:
+    build: /redis
+    image: redis-image:v1
+    container_name: redis-cont
+    networks:
+      - roboshop
+
+  user:
+    build: /user
+    image: user-image:v1
+    container_name: user-cont
+    ports:
+      - "2222:8080"
+    networks:
+      - roboshop
+
+  cart:
+    build: /cart
+    image: cart-image:v1
+    container_name: cart-cont
+    ports:
+      - "3333:8080"
+    networks:
+      - roboshop
+
+  mysql:
+    build: /mysql
+    image: mysql-image:v1
+    container_name: mysql-cont
+    networks:
+      - roboshop
+
+  shipping:
+    build: /shipping
+    image: shipping-image:v1
+    container_name: shipping-cont
+    ports:
+      - "4444:8080"
+    networks:
+      - roboshop
+
+  rabbitmq:
+    build: /rabbitmq
+    image: rabbitmq-image:v1
+    container_name: rabbitmq-cont
+    networks:
+      - roboshop
+
+  payment:
+    build: /payment
+    image: payment-image:v1
+    container_name: payment-cont
+    ports:
+      - "5555:8080"
+    networks:
+      - roboshop
+
+  frontend:
+    build: /frontend
+    image: frontend-image:v1
+    container_name: frontend-cont
+    ports:
+      - 80:80
+    networks:
+      - roboshop
+
+networks:
+  roboshop:
+        
