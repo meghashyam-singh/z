@@ -25,4 +25,4 @@ ENV CART_HOST=cart-cont \
     AMQP_USER=roboshop \
     AMQP_PASS=roboshop123
 USER roboshop
-CMD ["uwsgi", "--ini", "payment.ini", "--no-setuid", "--no-setgid", "--master"]
+CMD ["uwsgi", "--ini", "payment.ini"]
