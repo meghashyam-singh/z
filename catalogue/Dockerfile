@@ -5,6 +5,7 @@ COPY . .
 RUN npm install --only=production
 
 FROM node:20-alpine3.22
+WORKDIR /app
 RUN addgroup -S roboshop
 RUN adduser -S roboshop -S roboshop
 COPY --from=builder /app /app
