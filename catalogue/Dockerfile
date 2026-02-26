@@ -1,0 +1,15 @@
+FROM node:20-alpine3.22 AS builder
+WORKDIR /app
+COPY package.json .
+COPY . .
+RUN npm install --only=production
+
+FROM node:20-alpine3.22
+RUN addgroup -S roboshop
+RUN adduser -S roboshop -S roboshop
+COPY --from=builder /app /app
+RUN chown -R roboshop:roboshop /app
+ENV MONGO=true \
+    MONGO_URL="mongodb://mongodb-cont:27017/catalogue"
+USER roboshop
+CMD ["node", "server.js"]
