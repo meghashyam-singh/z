@@ -1,13 +1,13 @@
 services:
   mongodb:
-    build: /mongodb
+    build: ./mongodb
     image: mongodb-image:v1
     container_name: mongodb-cont
     networks:
      - roboshop
 
   catalogue:
-    build: /catalogue
+    build: ./catalogue
     image: catalogue-image:v1
     container_name: catalogue-cont
     ports:
@@ -16,14 +16,14 @@ services:
       - roboshop
 
   redis:
-    build: /redis
+    build: ./redis
     image: redis-image:v1
     container_name: redis-cont
     networks:
       - roboshop
 
   user:
-    build: /user
+    build: ./user
     image: user-image:v1
     container_name: user-cont
     ports:
@@ -32,7 +32,7 @@ services:
       - roboshop
 
   cart:
-    build: /cart
+    build: ./cart
     image: cart-image:v1
     container_name: cart-cont
     ports:
@@ -41,14 +41,14 @@ services:
       - roboshop
 
   mysql:
-    build: /mysql
+    build: ./mysql
     image: mysql-image:v1
     container_name: mysql-cont
     networks:
       - roboshop
 
   shipping:
-    build: /shipping
+    build: ./shipping
     image: shipping-image:v1
     container_name: shipping-cont
     ports:
@@ -57,14 +57,14 @@ services:
       - roboshop
 
   rabbitmq:
-    build: /rabbitmq
+    build: ./rabbitmq
     image: rabbitmq-image:v1
     container_name: rabbitmq-cont
     networks:
       - roboshop
 
   payment:
-    build: /payment
+    build: ./payment
     image: payment-image:v1
     container_name: payment-cont
     ports:
@@ -73,7 +73,7 @@ services:
       - roboshop
 
   frontend:
-    build: /frontend
+    build: ./frontend
     image: frontend-image:v1
     container_name: frontend-cont
     ports:
