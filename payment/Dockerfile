@@ -1,5 +1,8 @@
 FROM python:3.11-alpine3.22 AS builder
 RUN apk update
+RUN apk add --no-cache musl-dev
+RUN apk add --no-cache libffi-dev
+RUN apk add --no-cache openssl-dev
 RUN apk add --no-cache gcc
 RUN apk add --no-cache python3-dev
 WORKDIR /app
