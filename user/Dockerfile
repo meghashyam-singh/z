@@ -14,4 +14,4 @@ ENV MONGO=true \
     REDIS_URL='redis://redis-cont:6379' \
     MONGO_URL="mongodb://mongodb-cont:27017/users"
 USER roboshop
-CMD ["node, "server.js]
+CMD ["node", "server.js"]
