@@ -77,7 +77,7 @@ services:
     image: frontend-image:v1
     container_name: frontend-cont
     ports:
-      - 80:80
+      - 8080:8080
     networks:
       - roboshop
 
